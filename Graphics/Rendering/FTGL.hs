@@ -182,13 +182,20 @@ getFontFaceSize f = fromIntegral <$> fgetFontFaceSize f
 
 
 foreign import ccall unsafe "ftglSetFontDepth" fsetFontDepth :: Font -> CFloat -> IO ()
+-- | Set extrusion depth for extruded fonts.
 setFontDepth :: Font -> Float -> IO ()
 setFontDepth font depth = fsetFontDepth font (realToFrac depth)
 
 
 foreign import ccall unsafe "ftglSetFontOutset" fsetFontOutset :: Font -> CFloat -> CFloat -> IO ()
+-- | Set front and back font outsets for extruded fonts.
 setFontOutset :: Font -> Float -> Float -> IO ()
 setFontOutset font d o = fsetFontOutset font (realToFrac d) (realToFrac o)
+
+foreign import ccall unsafe "ftglSetFontShaderLocations" fsetFontShaderLocations :: Font -> CInt -> CInt -> CInt -> IO ()
+-- | Set shader locations for vertex coordinate attribute, normal attribute, and pen offset uniform (all vec3).
+setFontShaderLocations :: Font -> Int -> Int -> Int -> IO ()
+setFontShaderLocations f ca na ou = fsetFontShaderLocations f (fromIntegral ca) (fromIntegral na) (fromIntegral ou)
 
 
 foreign import ccall unsafe "ftglGetFontBBox" fgetFontBBox :: Font -> CString -> Int -> Ptr CFloat -> IO () 
