@@ -22,7 +22,7 @@
 -- Fonts are rendered so that a single point is an OpenGL unit, and a point is 1:72 of
 -- an inch.
 
-module Graphics.Rendering.FTGL 
+module Graphics.Rendering.FTGL3 
 where
 
 import System.IO.Unsafe(unsafePerformIO)

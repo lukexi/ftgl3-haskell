@@ -1,27 +1,28 @@
-Name:           FTGL
+Name:           ftgl3
 Version:        2.1 
 Cabal-Version:  >= 1.6
 License:        BSD3
 License-File:   LICENSE
-Author:         J.R. Heard
-Maintainer:     Santtu Keskinen <laquendi@gmail.com>
+Author:         J.R. Heard with modifications by Luke Iannini
+Maintainer:     Luke Iannini <lukexi@me.com>
 Category:       Graphics
 Description:    
   A Haskell binding for the portable TrueType to OpenGL font rendering library FTGL.
   This package provides OpenGL with polygonal, texture mapped, and extruded fonts using
   Freetype2 and any truetype font. 
+  Modified to work with GL3+ via https://github.com/lukexi/ftgl3
 Synopsis:       Portable TrueType font rendering for OpenGL using the Freetype2 library
 Build-Type:     Simple
 
 Library
   Build-Depends: base >= 4 && < 5
   Exposed-Modules:
-    Graphics.Rendering.FTGL
+    Graphics.Rendering.FTGL3
   extra-libraries: ftgl
   other-extensions: ForeignFunctionInterface, EmptyDataDecls
   ghc-options: -Wall -O2
 
 source-repository head
   type:     git
-  location: https://github.com/Laquendi/FTGL.git
+  location: https://github.com/lukexi/ftgl3-haskell
 
